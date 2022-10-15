@@ -10,5 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
-        run: docker build -t cygnetops/react-test -f Dockerfile.dev .
-        run: docker run -e CI=true cygnetops/react-test npm test
+        run: |
+          docker build -t cygnetops/react-test -f Dockerfile.dev .
+          docker run -e CI=true cygnetops/react-test npm test
